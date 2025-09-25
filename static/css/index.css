@@ -1,0 +1,564 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+  line-height: 1.6;
+}
+
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dnerf {
+  font-variant: small-caps;
+}
+
+
+.teaser .hero-body {
+  padding-top: 0;
+  padding-bottom: 3rem;
+}
+
+.teaser {
+  font-family: 'Google Sans', sans-serif;
+}
+
+
+.publication-title {
+}
+
+.publication-banner {
+  max-height: parent;
+
+}
+
+.publication-banner video {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  object-fit: fit;
+}
+
+.publication-header .hero-body {
+}
+
+.publication-title {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-authors {
+    font-family: 'Google Sans', sans-serif;
+}
+
+.publication-venue {
+    color: #555;
+    width: fit-content;
+    font-weight: bold;
+}
+
+.publication-awards {
+    color: #ff3860;
+    width: fit-content;
+    font-weight: bolder;
+}
+
+.publication-authors {
+}
+
+.publication-authors a {
+   color: hsl(204, 86%, 53%) !important;
+}
+
+.publication-authors a:hover {
+    text-decoration: underline;
+}
+
+.author-block {
+  display: inline-block;
+}
+
+.publication-banner img {
+}
+
+.publication-authors {
+  /*color: #4286f4;*/
+}
+
+.publication-video {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+
+    overflow: hidden;
+    border-radius: 10px !important;
+}
+
+.publication-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.publication-body img {
+}
+
+.results-carousel {
+  overflow: hidden;
+}
+
+.results-carousel .item {
+  margin: 5px;
+  overflow: hidden;
+  padding: 20px;
+  font-size: 0;
+}
+
+.results-carousel video {
+  margin: 0;
+}
+
+.slider-pagination .slider-page {
+  background: #000000;
+}
+
+.eql-cntrb { 
+  font-size: smaller;
+}
+
+/* Table container styling */
+.table-container {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 100%;
+  text-align: center;
+}
+
+.table-container h3,
+.table-container h4 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+
+.table {
+  margin: 0 auto;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.table thead th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+  text-align: center;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tbody tr[style*="background-color: #f0f8ff"] {
+  background-color: #e3f2fd !important;
+  font-weight: 500;
+}
+
+.table tbody tr[style*="background-color: #f9f9f9"] td {
+  background-color: #f8f9fa !important;
+  font-style: italic;
+  color: #6c757d;
+  font-weight: 500;
+}
+
+/* Figure container styling */
+.figure-container {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  text-align: center;
+  max-width: 100%;
+}
+
+.figure-container img {
+  border-radius: 6px;
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.figure-container img:hover {
+  transform: scale(1.02);
+  cursor: zoom-in;
+}
+
+.figure-number {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.figure-caption {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #495057;
+  line-height: 1.5;
+  text-align: justify;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.figure-caption strong {
+  color: #2c3e50;
+}
+
+/* Lightbox for image zoom */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  cursor: zoom-out;
+}
+
+.lightbox-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 95%;
+  max-height: 95%;
+}
+
+.lightbox img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+}
+
+.lightbox-close:hover {
+  color: #ccc;
+}
+
+/* Key Contributions styling - Professional cards */
+.contributions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.contribution-card {
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+}
+
+.contribution-card h4 {
+  color: #2c3e50;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.contribution-card p {
+  color: #495057;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+  text-align: justify;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .contributions-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .contribution-card {
+    padding: 1rem;
+  }
+
+  /* Mobile table fixes */
+  .table-container {
+    padding: 0.75rem !important;
+    margin: 1rem 0 !important;
+    overflow-x: auto !important; /* All table containers scroll */
+    -webkit-overflow-scrolling: touch;
+    width: 100% !important;
+    max-width: calc(100vw - 2rem) !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Target the inline overflow div specifically (for Semantic Correspondence) */
+  .table-container > div[style*="overflow-x: auto"] {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  /* Ensure all table containers have proper scrolling */
+  .table-container:not(:has(div[style*="overflow-x: auto"])) {
+    overflow-x: auto;
+  }
+
+  .table {
+    font-size: 0.75rem;
+    min-width: 600px; /* Base minimum width for all tables */
+    width: max-content;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.4rem 0.2rem;
+    white-space: nowrap;
+    font-size: 0.75rem;
+  }
+
+  /* Sticky first column for all tables */
+  .table tbody tr td:first-child {
+    position: sticky;
+    left: 0;
+    background: white;
+    z-index: 1;
+    border-right: 1px solid #dee2e6;
+    min-width: 80px;
+    font-size: 0.7rem;
+    padding: 0.3rem 0.15rem;
+  }
+
+  .table thead tr th:first-child {
+    position: sticky;
+    left: 0;
+    background: #f8f9fa;
+    z-index: 2;
+    border-right: 1px solid #dee2e6;
+    min-width: 80px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.3rem 0.15rem;
+  }
+
+  /* Special handling for very wide tables (SPair-71k with 19 columns) */
+  .table:has(th:nth-child(19)) {
+    min-width: 900px;
+  }
+
+  .table:has(th:nth-child(19)) tbody tr td:first-child,
+  .table:has(th:nth-child(19)) thead tr th:first-child {
+    min-width: 100px;
+    font-size: 0.65rem;
+  }
+
+  /* Ensure backgrounds work for highlighted rows */
+  .table tbody tr[style*="background-color"] td:first-child {
+    background: inherit !important;
+  }
+
+  /* Mobile figure adjustments */
+  .figure-container {
+    padding: 1.5rem;
+    margin: 1.5rem auto;
+  }
+
+  .figure-caption {
+    font-size: 0.95rem;
+  }
+
+  /* Mobile title adjustments */
+  .title.is-1 {
+    font-size: 2rem !important;
+  }
+
+  .title {
+    font-size: 1.5rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  /* Mobile section spacing */
+  .section {
+    padding: 2rem 1rem !important;
+  }
+
+  .section .container {
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .container {
+    padding: 0 !important;
+    margin: 0 auto !important;
+    max-width: 100% !important;
+  }
+
+  .columns {
+    margin: -0.75rem !important;
+    flex-direction: column !important;
+  }
+
+  .column {
+    padding: 0.75rem !important;
+  }
+
+  /* Let wide tables scroll horizontally - simple approach */
+  .table-container {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Mobile lightbox adjustments */
+  .lightbox-content {
+    max-width: 98%;
+    max-height: 98%;
+  }
+
+  .lightbox-close {
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+  }
+}
+
+/* Tablet adjustments */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+  .table-container {
+    padding: 1.25rem;
+  }
+
+  .figure-container {
+    padding: 1.25rem;
+  }
+
+  .contributions-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}
+
+/* Desktop fixes - restore normal behavior for larger screens */
+@media screen and (min-width: 769px) {
+  /* Reset table containers for desktop */
+  .table-container {
+    padding: 1.5rem !important;
+    margin: 1.5rem auto !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important; /* Keep horizontal scroll for wide tables on desktop too */
+    box-sizing: border-box !important;
+  }
+
+  /* Reset table styling for desktop but keep some mobile optimizations for very wide tables */
+  .table {
+    font-size: 1rem !important;
+    min-width: auto !important;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.5rem 0.75rem !important;
+    font-size: inherit !important;
+  }
+
+  /* SPair-71k table - make it scrollable without causing container overflow */
+  .table:has(th:nth-child(19)) {
+    width: max-content !important;
+    min-width: 1200px !important; /* Ensure minimum width for readability */
+    max-width: none !important;
+  }
+
+  /* Keep sticky first column only for very wide tables (SPair-71k) on desktop */
+  .table:has(th:nth-child(19)) tbody tr td:first-child,
+  .table:has(th:nth-child(19)) thead tr th:first-child {
+    position: sticky !important;
+    left: 0 !important;
+    z-index: 1 !important;
+    border-right: 1px solid #dee2e6 !important;
+    min-width: 120px !important;
+    font-size: 0.9rem !important;
+    padding: 0.4rem 0.5rem !important;
+  }
+
+  .table:has(th:nth-child(19)) tbody tr td:first-child {
+    background: white !important;
+  }
+
+  .table:has(th:nth-child(19)) thead tr th:first-child {
+    background: #f8f9fa !important;
+    z-index: 2 !important;
+  }
+
+  .table:has(th:nth-child(19)) tbody tr[style*="background-color"] td:first-child {
+    background: inherit !important;
+  }
+
+  /* Reset first column for normal tables on desktop */
+  .table:not(:has(th:nth-child(19))) tbody tr td:first-child,
+  .table:not(:has(th:nth-child(19))) thead tr th:first-child {
+    position: static !important;
+    background: transparent !important;
+    z-index: auto !important;
+    border-right: none !important;
+    min-width: auto !important;
+    max-width: none !important;
+    font-size: inherit !important;
+    padding: 0.5rem 0.75rem !important;
+  }
+
+  /* Reset columns layout for desktop */
+  .columns {
+    flex-direction: row !important;
+    margin: -0.75rem !important;
+  }
+
+  .column {
+    padding: 0.75rem !important;
+  }
+
+  /* Reset section padding for desktop */
+  .section {
+    padding: 3rem 2rem !important;
+  }
+
+  .section .container {
+    padding: 0 2rem !important;
+  }
+
+  /* Reset container for desktop */
+  .container {
+    max-width: 1344px !important;
+    margin: 0 auto !important;
+    padding: 0 2rem !important;
+  }
+
+}
+

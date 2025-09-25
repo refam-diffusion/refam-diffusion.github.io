@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <!-- Meta tags for social media banners, these should be filled in appropriately as they are your "business card" -->
+  <!-- Replace the content tag with appropriate information -->
+  <meta name="description" content="RefAM: Attention Magnets for Zero-Shot Referral Segmentation">
+  <meta property="og:title" content="RefAM: Attention Magnets for Zero-Shot Referral Segmentation"/>
+  <meta property="og:description" content="RefAM exploits stop words as attention magnets in diffusion transformers to achieve state-of-the-art zero-shot referring segmentation without fine-tuning or additional components."/>
+  <meta property="og:url" content="https://refam-diffusion.github.io/"/>
+  <!-- Path to banner image, should be in the path listed below. Optimal dimensions are 1200X630-->
+  <meta property="og:image" content="static/images/teaser.webp" />
+  <meta property="og:image:width" content="1200"/>
+  <meta property="og:image:height" content="630"/>
+
+  <!-- Keywords for your paper to be indexed by-->
+  <meta name="keywords" content="Referring segmentation, attention magnets, stop words, diffusion transformers, zero-shot, computer vision">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://www.w3counter.com/tracker.js?id=155988"></script>
+
+  <title>RefAM: Attention Magnets for Zero-Shot Referral Segmentation</title>
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+  rel="stylesheet">
+
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <h1 class="title is-1 publication-title">RefAM: Attention Magnets for Zero-Shot Referral Segmentation</h1>
+            <div class="is-size-5 publication-authors">
+              <!-- Paper authors -->
+              <span class="author-block">
+                <a href="https://annusha.github.io/" target="_blank">Anna Kukleva</a><sup>1,&#8224;</sup>,</span>
+              <span class="author-block">
+                <a href="https://enisimsar.github.io/" target="_blank">Enis Simsar</a><sup>2,&#8224;</sup>,</span>
+              <span class="author-block">
+                <a href="https://alessiotonioni.github.io/" target="_blank">Alessio Tonioni</a><sup>4</sup>,</span>
+              <span class="author-block">
+                <a href="https://ferjad.github.io/" target="_blank">Muhammad Ferjad Naeem</a><sup>4</sup>,</span>
+              <br>
+              <span class="author-block">
+                <a href="https://federicotombari.github.io/" target="_blank">Federico Tombari</a><sup>3,4</sup>,</span>
+              <span class="author-block">
+                <a href="https://janericlenssen.github.io/" target="_blank">Jan Eric Lenssen</a><sup>1</sup>,</span>
+              <span class="author-block">
+                <a href="https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/people/bernt-schiele" target="_blank">Bernt Schiele</a><sup>1</sup>,</span>
+              </div>
+
+                  <div class="is-size-5 publication-authors">
+                    <span class="author-block"><sup>1</sup>Max Planck Institute for Informatics, SIC,</span>
+                    <span class="author-block"><sup>2</sup>ETH Zürich - DALAB,</span>
+                    <span class="author-block"><sup>3</sup>TU Munich,</span>
+                    <span class="author-block"><sup>4</sup>Google</span>
+                    <span class="eql-cntrb" style="font-size: 90%; display: block; margin-top: 4px;">
+                      <sup>&#8224;</sup>Indicates Equal Contribution
+                    </span>
+                  </div>
+
+                  <div class="column has-text-centered">
+                    <div class="publication-links">
+                      <!-- ArXiv abstract Link -->
+                      <span class="link-block">
+                        <a href="#" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="ai ai-arxiv"></i>
+                        </span>
+                        <span>arXiv</span>
+                      </a>
+                    </span>
+                         <!-- Arxiv PDF link -->
+                      <span class="link-block">
+                        <a href="#" target="_blank"
+                        class="external-link button is-normal is-rounded is-dark">
+                        <span class="icon">
+                          <i class="fas fa-file-pdf"></i>
+                        </span>
+                        <span>Paper</span>
+                      </a>
+                    </span>
+
+                    <!-- Supplementary PDF link -->
+                    <!-- <span class="link-block">
+                      <a href="static/pdfs/supplementary_material.pdf" target="_blank"
+                      class="external-link button is-normal is-rounded is-dark">
+                      <span class="icon">
+                        <i class="fas fa-file-pdf"></i>
+                      </span>
+                      <span>Supplementary</span>
+                    </a>
+                  </span> -->
+
+                  <!-- Github link -->
+                <span class="link-block">
+                    <a href="#" target="_blank"
+                    class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Code</span>
+                  </a>
+                </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Paper abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Most existing approaches to referring segmentation achieve strong performance only through fine-tuning or by composing multiple pre-trained models, often at the cost of additional training and architectural modifications. Meanwhile, large-scale generative diffusion models encode rich semantic information, making them attractive as general-purpose feature extractors. In this work, we introduce a new method that directly exploits features, attention scores, from diffusion transformers for downstream tasks, requiring neither architectural modifications nor additional training. To systematically evaluate these features, we extend benchmarks with vision–language grounding tasks spanning both images and videos. Our key insight is that stop words act as attention magnets: they accumulate surplus attention and can be filtered to reduce noise. Moreover, we identify global attention sinks (GAS) emerging in deeper layers and show that they can be safely suppressed or redirected onto auxiliary tokens, leading to sharper and more accurate grounding maps. We further propose an attention redistribution strategy, where appended stop words partition background activations into smaller clusters, yielding sharper and more localized heatmaps. Building on these findings, we develop RefAM, a simple training-free grounding framework that combines cross-attention maps, GAS handling, and redistribution. Across zero-shot referring image and video segmentation benchmarks, our approach consistently outperforms prior methods, establishing a new state of the art without fine-tuning or additional components.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End paper abstract -->
+
+<!-- Introduction and Problem Statement -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title">Introduction</h2>
+        <div class="content has-text-justified">
+          <p>
+            <strong>The Challenge:</strong> Referring segmentation - the task of localizing objects based on natural language descriptions - typically requires extensive fine-tuning or complex multi-model architectures. While diffusion transformers (DiTs) encode rich semantic information, directly leveraging their attention mechanisms for grounding tasks has remained largely unexplored.
+          </p>
+          <p>
+            <strong>The Discovery:</strong> We uncover that diffusion transformers exhibit attention sink behaviors similar to large language models, where stop words accumulate disproportionately high attention despite lacking semantic value. This creates both challenges and opportunities for vision-language grounding.
+          </p>
+          <p>
+            <strong>Our Solution:</strong> RefAM exploits stop words as "attention magnets" - deliberately adding them to referring expressions to absorb surplus attention, then filtering them out to obtain cleaner attention maps. This simple strategy achieves state-of-the-art zero-shot referring segmentation without any fine-tuning or architectural modifications.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Introduction -->
+
+<!-- Key Contributions -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title">Key Contributions</h2>
+        <div class="contributions-grid">
+          <div class="contribution-card">
+            <h4><strong>🔍 Global Attention Sinks Discovery</strong></h4>
+            <p>We identify and analyze global attention sinks (GAS) in diffusion transformers that act as attention magnets, linking their emergence to semantic structure and showing they can be safely filtered.</p>
+          </div>
+
+          <div class="contribution-card">
+            <h4><strong>🧲 Stop-word Attention Redistribution</strong></h4>
+            <p>We introduce a novel strategy where strategically added stop words act as attention magnets, absorbing surplus attention to enable cleaner cross-attention maps for better grounding.</p>
+          </div>
+
+          <div class="contribution-card">
+            <h4><strong>🎯 Training-Free Grounding Framework</strong></h4>
+            <p>RefAM combines cross-attention extraction, GAS filtering, and attention redistribution into a simple framework that requires no fine-tuning or architectural modifications.</p>
+          </div>
+
+          <div class="contribution-card">
+            <h4><strong>📊 State-of-the-Art Zero-Shot Results</strong></h4>
+            <p>We achieve new state-of-the-art performance on referring image and video segmentation benchmarks, significantly outperforming prior training-free methods.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Key Contributions -->
+
+<!-- Method Overview -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title">Method Overview</h2>
+        <div class="figure-container">
+          <img src="static/images/pipeline.webp" alt="RefAM Method Overview">
+          <div class="figure-caption">
+            <strong>RefAM Pipeline Overview.</strong> Our method extracts cross-attention maps from diffusion transformers for referring expressions augmented with attention magnets. We first append stop words (".", "a", "with") to the referring expression to act as attention magnets. Next, we extract cross-attention maps from DiT layers, filter out stop words and attention magnets, aggregate the remaining maps, and apply SAM for final segmentation. This simple training-free approach achieves state-of-the-art zero-shot referring segmentation results.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Method Overview -->
+
+<!-- Stop-word Filtering Results -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title">Stop-word Filtering for Referral Segmentation</h2>
+        
+        <div class="content has-text-justified">
+          <p>
+            A key discovery in our work is that stop words (e.g., "the", "a", "of") act as attention magnets in cross-attention maps, absorbing significant attention scores and creating noisy backgrounds that hurt segmentation quality. We exploit this phenomenon by strategically adding extra stop words to referral expressions, which further concentrate the attention pollution, and then filtering out all stop words to obtain cleaner attention maps. This simple yet effective technique dramatically improves the quality of attention-based segmentation across both image and video domains, leading to more precise object localization.
+          </p>
+        </div>
+
+        <div class="figure-container">
+          <img src="static/images/devis_quali_main.webp" alt="Stop-word Filtering Example">
+          <div class="figure-caption">
+            <strong>Influence of stop words on referral segmentation.</strong> We demonstrate how stop words "pollute" cross-attention scores by attracting high attention to background areas. By adding extra stop words as attention magnets and then filtering them out, we achieve sharper attention maps focused on core concepts (nouns, verbs, adjectives). The example shows attention maps before and after stop-word filtering, with segmentation results using SAM 2. Gray tokens indicate filtered stop words.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Stop-word Filtering Results -->
+
+<!-- Semantic Correspondence Results -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title">Global Attention Sinks in Diffusion Transformers</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            We discover that diffusion transformers exhibit attention sink behaviors similar to large language models. Specifically, we identify Global Attention Sinks (GAS) - tokens that attract disproportionately high and nearly uniform attention across all text and image tokens simultaneously. These sinks emerge consistently in deeper layers but are absent in early layers, serving as indicators of semantic structure. While uninformative themselves, they can suppress useful signals when they occur on meaningful tokens, which we address through strategic filtering and redistribution.
+          </p>
+        </div>
+
+        <div class="figure-container">
+          <img src="static/images/teaser.webp" alt="Global Attention Sinks Examples">
+          <div class="figure-caption">
+            <strong>Global Attention Sinks (GAS) in DiT.</strong> We highlight tokens (here, tokens #1 and #16) that act as GAS in late layers. These tokens allocate disproportionately high and nearly uniform attention across all text and image tokens simultaneously. GAS are absent in early layers, emerge consistently in deeper blocks, and serve as indicators of semantic structure. While uninformative themselves, they can suppress useful signals when they occur on meaningful tokens.
+          </div>
+        </div>
+
+        <div class="figure-container">
+          <img src="static/images/emergence.webp" alt="Emergence of Semantic Information in DiT">
+          <div class="figure-caption">
+            <strong>Emergence of semantic information in DiT.</strong> Top: text-to-text attention across layers. Early layers (0–19) are diffuse and uniform, while middle and late layers (20–47) develop block-diagonal structure, indicating meaningful linguistic grouping. Bottom: text-to-image attention for the "patches" token. Early layers spread attention broadly over the scene, whereas middle layers begin to localize, and late layers sharpen around the target object. These dynamics illustrate how semantic alignment emerges progressively with depth.
+          </div>
+        </div>
+
+        <div class="content has-text-justified">
+          <p>
+            <strong>Key Findings:</strong> Our analysis reveals that GAS tokens emerge progressively with network depth, transitioning from diffuse attention patterns in early layers to structured, semantically meaningful distributions in deeper layers. This emergence correlates with the development of semantic understanding, providing insights into how diffusion transformers build hierarchical representations. By identifying and strategically filtering these attention sinks, we can redirect attention toward semantically relevant regions, leading to more accurate grounding and segmentation results.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Semantic Correspondence Results -->
+
+<!-- Detailed Results Discussion -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column">
+        <h2 class="title">Referral Image Object Segmentation</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            RefAM achieves state-of-the-art zero-shot referring image segmentation on RefCOCO/RefCOCO+/RefCOCOg datasets. Our attention magnet strategy proves crucial - by strategically adding stop words to absorb surplus attention and then filtering them out, we obtain cleaner attention maps focused on the target object. This simple technique dramatically improves localization precision without requiring any fine-tuning or architectural modifications. RefAM significantly outperforms previous training-free methods while maintaining simplicity.
+          </p>
+        </div>
+
+        <div class="figure-container">
+          <img src="static/images/RIOS_fig1.webp" alt="Referral Image Object Segmentation Examples">
+          <div class="figure-caption">
+            <strong>Referral Image Object Segmentation Examples.</strong> RefAM leverages cross-attention maps from diffusion transformers with attention magnet filtering to achieve zero-shot referral segmentation. By strategically adding stop words as attention magnets and then filtering them out, we obtain cleaner attention maps that focus on the target objects, leading to more accurate segmentation masks generated with SAM.
+          </div>
+        </div>
+          
+        <div class="table-container">
+          <h4><strong>RefCOCO Image Referral Segmentation Results</strong></h4>
+          <div style="overflow-x: auto;">
+            <table class="table is-bordered is-striped is-narrow">
+              <thead>
+                <tr>
+                  <th rowspan="2">Method</th>
+                  <th colspan="3">RefCOCO (oIoU)</th>
+                  <th colspan="3">RefCOCO+ (oIoU)</th>
+                  <th colspan="2">RefCOCOg (oIoU)</th>
+                </tr>
+                <tr>
+                  <th>val</th>
+                  <th>testA</th>
+                  <th>testB</th>
+                  <th>val</th>
+                  <th>testA</th>
+                  <th>testB</th>
+                  <th>val</th>
+                  <th>test</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="background-color: #f9f9f9;">
+                  <td colspan="9"><em>Zero-shot methods w/o additional training</em></td>
+                </tr>
+                <tr>
+                  <td>Grad-CAM</td>
+                  <td>23.44</td><td>23.91</td><td>21.60</td><td>26.67</td><td>27.20</td><td>24.84</td><td>23.00</td><td>23.91</td>
+                </tr>
+                <tr>
+                  <td>Global-Local</td>
+                  <td>24.55</td><td>26.00</td><td>21.03</td><td>26.62</td><td>29.99</td><td>22.23</td><td>28.92</td><td>30.48</td>
+                </tr>
+                <tr>
+                  <td>Global-Local</td>
+                  <td>21.71</td><td>24.48</td><td>20.51</td><td>23.70</td><td>28.12</td><td>21.86</td><td>26.57</td><td>28.21</td>
+                </tr>
+                <tr>
+                  <td>Ref-Diff</td>
+                  <td>35.16</td><td>37.44</td><td><u>34.50</u></td><td>35.56</td><td>38.66</td><td><u>31.40</u></td><td>38.62</td><td>37.50</td>
+                </tr>
+                <tr>
+                  <td>TAS</td>
+                  <td>29.53</td><td>30.26</td><td>28.24</td><td>33.21</td><td><u>38.77</u></td><td>28.01</td><td>35.84</td><td>36.16</td>
+                </tr>
+                <tr>
+                  <td>HybridGL</td>
+                  <td><u>41.81</u></td><td><u>44.52</u></td><td><u>38.50</u></td><td><u>35.74</u></td><td><u>41.43</u></td><td>30.90</td><td><u>42.47</u></td><td><u>42.97</u></td>
+                </tr>
+                <tr style="background-color: #f0f8ff;">
+                  <td><strong>RefAM (ours)</strong></td>
+                  <td><strong>46.91</strong></td><td><strong>52.30</strong></td><td><strong>43.88</strong></td><td><strong>38.57</strong></td><td><strong>42.66</strong></td><td><strong>34.90</strong></td><td><strong>45.53</strong></td><td><strong>44.45</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p><small><strong>Bold</strong> = best, <u>underlined</u> = second-best among training-free methods.</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Detailed Results Discussion -->
+
+<!-- Video Referral Segmentation -->
+<section class="section hero">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column has-text-centered">
+        <h2 class="title">Video Referral Object Segmentation</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            RefAM extends seamlessly to video referring segmentation tasks using Mochi, a video diffusion transformer. We extract cross-attention maps from the first frame with our attention magnet strategy and leverage SAM2's temporal propagation for consistent video segmentation. The attention magnet filtering proves even more crucial in video contexts where temporal consistency can amplify attention noise. RefAM achieves substantial improvements over existing training-free methods, establishing new benchmarks for zero-shot video referral segmentation.
+          </p>
+        </div>
+
+        <div class="figure-container">
+          <img src="static/images/davis_new.webp" alt="Video Referral Segmentation Results">
+          <div class="figure-caption">
+            <strong>Video Referral Object Segmentation Examples.</strong> RefAM extends seamlessly to video domains using Mochi diffusion transformers. We extract cross-attention maps with attention magnets from the first frame and use SAM2 for temporal propagation. The approach is training-free and operates in zero-shot manner, with attention magnet filtering being crucial for clean temporal segmentation.
+          </div>
+        </div>
+        
+        <br>
+        <div class="columns">
+          <div class="column">
+            <div class="table-container">
+              <h4><strong>Ref-DAVIS17 Video Results</strong></h4>
+              <table class="table is-bordered is-striped is-narrow">
+                <thead>
+                  <tr>
+                    <th>Method</th>
+                    <th>J&F</th>
+                    <th>J</th>
+                    <th>F</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background-color: #f9f9f9;">
+                    <td colspan="4"><em>Training-Free with Grounded-SAM</em></td>
+                  </tr>
+                  <tr>
+                    <td>Grounded-SAM</td>
+                    <td>65.2</td><td>62.3</td><td>68.0</td>
+                  </tr>
+                  <tr>
+                    <td>Grounded-SAM2</td>
+                    <td>66.2</td><td>62.6</td><td>69.7</td>
+                  </tr>
+                  <tr>
+                    <td>AL-Ref-SAM2</td>
+                    <td>74.2</td><td>70.4</td><td>78.0</td>
+                  </tr>
+                  <tr style="background-color: #f9f9f9;">
+                    <td colspan="4"><em>Training-Free</em></td>
+                  </tr>
+                  <tr>
+                    <td>G-L + SAM2</td>
+                    <td>40.6</td><td>37.6</td><td>43.6</td>
+                  </tr>
+                  <tr>
+                    <td>G-L (SAM) + SAM2</td>
+                    <td>46.9</td><td>44.0</td><td>49.7</td>
+                  </tr>
+                  <tr style="background-color: #f0f8ff;">
+                    <td><strong>RefAM + SAM2 (ours)</strong></td>
+                    <td><strong>57.6</strong></td><td><strong>54.5</strong></td><td><strong>60.6</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="column">
+            <div class="table-container">
+              <h4><strong>Component Ablation Study</strong></h4>
+              <table class="table is-bordered is-striped is-narrow">
+                <thead>
+                  <tr>
+                    <th>AM</th>
+                    <th>NP</th>
+                    <th>SB</th>
+                    <th>J&F</th>
+                    <th>J</th>
+                    <th>F</th>
+                    <th>PA</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="background-color: #f0f8ff;">
+                    <td>✓</td><td>✓</td><td>✓</td><td><strong>57.6</strong></td><td><strong>54.5</strong></td><td><strong>60.6</strong></td><td><strong>68.9</strong></td>
+                  </tr>
+                  <tr>
+                    <td>-</td><td>✓</td><td>✓</td><td>54.4</td><td>50.9</td><td>57.6</td><td>59.8</td>
+                  </tr>
+                  <tr>
+                    <td>✓</td><td>✓</td><td>-</td><td>55.1</td><td>52.2</td><td>58.0</td><td>67.2</td>
+                  </tr>
+                  <tr>
+                    <td>-</td><td>✓</td><td>-</td><td>53.1</td><td>49.5</td><td>56.7</td><td>60.2</td>
+                  </tr>
+                  <tr>
+                    <td>-</td><td>-</td><td>-</td><td>50.0</td><td>46.8</td><td>53.2</td><td>52.5</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p><small>AM = attention magnets, NP = noun phrase filtering, SB = spatial bias, PA = point accuracy</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Video Referral Segmentation -->
+
+<!-- Societal Impact abstract -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Societal Impact</h2>
+        <div class="content has-text-justified">
+          <p>
+            RefAM provides a powerful and accessible tool for zero-shot referring segmentation, enabling advances in applications such as medical image analysis, robotics, autonomous systems, and assistive technologies for people with visual impairments. The attention magnet approach democratizes access to high-quality referring segmentation capabilities without requiring specialized training or fine-tuning.
+            <br><br>
+            By providing training-free, zero-shot methods that work across different domains (images and videos), RefAM is particularly valuable for researchers and practitioners who may not have access to large computational resources or extensive labeled datasets. The simplicity of the approach makes it broadly applicable and easy to integrate into existing systems.
+            <br><br>
+            However, as with any advancement in computer vision and AI, there are potential ethical considerations. Improved referring segmentation capabilities could be misused for surveillance or privacy violation purposes. We emphasize the importance of deploying these technologies responsibly, with appropriate safeguards and consideration for privacy rights. We encourage the research community to continue developing ethical guidelines for the deployment of vision-language technologies and to consider the broader societal implications of these advancements.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- End Societal Impact abstract -->
+
+<!--BibTex citation -->
+  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code></code></pre>
+    </div>
+</section>
+<!--End BibTex citation -->
+
+
+  <!-- Lightbox for image zoom -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <div class="lightbox-content">
+      <img id="lightbox-img" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    function openLightbox(imgSrc, imgAlt) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = imgSrc;
+      lightboxImg.alt = imgAlt;
+      lightbox.style.display = 'block';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeLightbox();
+      }
+    });
+
+    // Add click handlers to all figure images
+    document.addEventListener('DOMContentLoaded', function() {
+      const figureImages = document.querySelectorAll('.figure-container img');
+      figureImages.forEach(function(img) {
+        img.addEventListener('click', function() {
+          openLightbox(this.src, this.alt);
+        });
+      });
+    });
+  </script>
+
+  <footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+
+          <p>
+            This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> which was adopted from the <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
+            You are free to borrow the source code of this website, we just ask that you link back to this page in the footer. <br> This website is licensed under a <a rel="license"  href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+
+  </body>
+  </html>
